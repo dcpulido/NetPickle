@@ -27,7 +27,13 @@ if __name__ == "__main__":
             buff = mqtt.get_buffer()
             if(len(buff)>0):
                 logging.info("ON MESSAGE")
-                logging.info(json.dumps(pickle.loads(buff[0]["payload"]).to_dict()))
+                #logging.info(json.dumps(pickle.loads(buff[0]["payload"]).to_dict()))
+                
+                ins = pickle.loads(buff[0]["payload"])
+                
+                print ins.exe(2)
+                ins.exe2("holis")
+            
             time.sleep(1)
     except KeyboardInterrupt:
         mqtt.disconnect()
